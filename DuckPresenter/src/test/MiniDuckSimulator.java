@@ -14,7 +14,6 @@ public class MiniDuckSimulator {
 		mallardDuck.performQuack();
 		mallardDuck.swim();
 		
-		System.out.println("==========================");
 		
 		Duck modelDuck = new ModelDuck();
 		modelDuck.performFly();
