@@ -25,35 +25,35 @@ java设计模式--策略模式
 把飞行和叫的行为委托给其他人来处理，而不是定义在超类或者是子类里面
 定义超类：Duck.java
 public abstract class Duck {
-public FlyBehavior flyBehavior;
-public QuackBehavior quackBehavior;
+	public FlyBehavior flyBehavior;
+	public QuackBehavior quackBehavior;
 
-public Duck() {}
+	public Duck() {}
 
-public abstract void display();
-public void swim() {
-System.out.println("I can swimming");
-}
+	public abstract void display();
+	public void swim() {
+	System.out.println("I can swimming");
+	}
 
-public void performFly() {
-flyBehavior.fly();//委托给行为类
-}
+	public void performFly() {
+	flyBehavior.fly();//委托给行为类
+	}
 
 
-public void performQuack() {
-quackBehavior.quack();//委托给行为类
-}
+	public void performQuack() {
+	quackBehavior.quack();//委托给行为类
+	}
 }
 
 俩接口：
 //所有飞行行为实现
 public interface FlyBehavior {
-public void fly();//fly
+	public void fly();//fly
 
 }
 //所有叫行为实现
 public interface QuackBehavior {
-public void quack();
+	public void quack();
 }
 
 然后就是我们具体的实现类了，我们的实现类可以有多个，什么会飞的啊  不会飞的啊，还有呱呱叫的，不会叫的，根据具体行为来实现
@@ -64,33 +64,33 @@ public void quack();
 public class FlyNoWay implements FlyBehavior{
 
 
-@Override
-public void fly() {
-// TODO Auto-generated method stub
-System.out.println("I can't fly");
-}
-}
-//会飞
-public class FlyWithWings implements FlyBehavior{
+	@Override
+	public void fly() {
+		// TODO Auto-generated method stub
+		System.out.println("I can't fly");
+		}
+	}
+	//会飞
+	public class FlyWithWings implements FlyBehavior{
 
 
-@Override
-public void fly() {
-// TODO Auto-generated method stub
-System.out.println("I can fly");
-}
+	@Override
+	public void fly() {
+		// TODO Auto-generated method stub
+		System.out.println("I can fly");
+	}
 
-}
-//呱呱叫的
-public class Quack implements QuackBehavior{
+	}
+	//呱呱叫的
+	public class Quack implements QuackBehavior{
 
 
-@Override
-public void quack() {
-// TODO Auto-generated method stub
-System.out.println("I can Quack");
+	@Override
+	public void quack() {
+		// TODO Auto-generated method stub
+		System.out.println("I can Quack");
 
-}
+	}
 
 }
 
@@ -98,16 +98,16 @@ System.out.println("I can Quack");
 public class MallardDuck extends Duck {
 
 
-@Override
-public void display() {
-// TODO Auto-generated method stub
-System.out.println("I am MallardDuck");
-}
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		System.out.println("I am MallardDuck");
+	}
 
-public MallardDuck() {
-quackBehavior = new Quack();
-flyBehavior = new FlyWithWings();
-}
+	public MallardDuck() {
+		quackBehavior = new Quack();
+		flyBehavior = new FlyWithWings();
+	}
 
 }
 
@@ -115,20 +115,20 @@ flyBehavior = new FlyWithWings();
 //测试
 public class MiniDuckSimulator {
 
-public static void main(String[] args) {
-Duck mallardDuck = new MallardDuck();
-mallardDuck.display();
-mallardDuck.performFly();
-mallardDuck.performQuack();
-mallardDuck.swim();
-}
+	public static void main(String[] args) {
+		Duck mallardDuck = new MallardDuck();
+		mallardDuck.display();
+		mallardDuck.performFly();
+		mallardDuck.performQuack();
+		mallardDuck.swim();
+	}
 
 }
 //output:
-I am MallardDuck
-I can fly
-I can Quack
-I can swimming
+	I am MallardDuck
+	I can fly
+	I can Quack
+	I can swimming
 
 
 接下来我们看下如何动态的去改变这些行为
@@ -138,40 +138,40 @@ I can swimming
 public abstract class Duck {
 
 
-public FlyBehavior flyBehavior;
-public QuackBehavior quackBehavior;
+	public FlyBehavior flyBehavior;
+	public QuackBehavior quackBehavior;
 
 
-public Duck() {
-}
+	public Duck() {
+	}
 
 
-public abstract void display();
+	public abstract void display();
 
 
-public void swim() {
-System.out.println("I can swimming");
-}
+	public void swim() {
+		System.out.println("I can swimming");
+	}
 
 
-public void performFly() {
-flyBehavior.fly();// 委托给行为类
-}
+	public void performFly() {
+		flyBehavior.fly();// 委托给行为类
+	}
 
 
-public void performQuack() {
-quackBehavior.quack();// 委托给行为类
-}
+	public void performQuack() {
+		quackBehavior.quack();// 委托给行为类
+	}
 
 
-public void setFlyBehavior(FlyBehavior flyBehavior) {
-this.flyBehavior = flyBehavior;
-}
+	public void setFlyBehavior(FlyBehavior flyBehavior) {
+		this.flyBehavior = flyBehavior;
+	}
 
 
-public void setQuackBehavior(QuackBehavior quackBehavior) {
-this.quackBehavior = quackBehavior;
-}
+	public void setQuackBehavior(QuackBehavior quackBehavior) {
+		this.quackBehavior = quackBehavior;
+	}
 }
 
 修改我们的测试类MiniDuckSimulator
@@ -179,32 +179,32 @@ this.quackBehavior = quackBehavior;
 public class MiniDuckSimulator {
 
 
-public static void main(String[] args) {
-Duck mallardDuck = new MallardDuck();
-mallardDuck.display();
-mallardDuck.performFly();
-mallardDuck.performQuack();
-mallardDuck.swim();
+	public static void main(String[] args) {
+		Duck mallardDuck = new MallardDuck();
+		mallardDuck.display();
+		mallardDuck.performFly();
+		mallardDuck.performQuack();
+		mallardDuck.swim();
 
-System.out.println("==========================");
+		System.out.println("==========================");
 
-Duck modelDuck = new ModelDuck();
-modelDuck.performFly();
-modelDuck.performQuack();
-modelDuck.setFlyBehavior(new FlyWithWings());
-modelDuck.performFly();
-}
+		Duck modelDuck = new ModelDuck();
+		modelDuck.performFly();
+		modelDuck.performQuack();
+		modelDuck.setFlyBehavior(new FlyWithWings());
+		modelDuck.performFly();
+	}
 
 }
 output:
-I am MallardDuck
-I can fly
-I can Quack
-I can swimming
-==========================
-I can't fly
-I can Quack
-I can fly
+	I am MallardDuck
+	I can fly
+	I can Quack
+	I can swimming
+
+	I can't fly
+	I can Quack
+	I can fly
 
 
 改变前：第一次调用performFly()会被委托给flyBehavior对象，setter方法会将会飞的行为设置鸭中，然后鸭就具有了飞行的行为
