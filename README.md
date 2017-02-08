@@ -125,6 +125,7 @@ public class MiniDuckSimulator {
 
 }
 //output:
+
 	I am MallardDuck
 	I can fly
 	I can Quack
@@ -197,6 +198,7 @@ public class MiniDuckSimulator {
 
 }
 output:
+
 	I am MallardDuck
 	I can fly
 	I can Quack
